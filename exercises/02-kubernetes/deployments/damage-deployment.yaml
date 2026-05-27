@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reservation
+  name: damage
   namespace: go72hog
   labels:
-    app: reservation
+    app: damage
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reservation
+      app: damage
   template:
     metadata:
       labels:
-        app: reservation
+        app: damage
     spec:
       containers:
-      - name: reservation
-        image: ghcr.io/mtze/pedelec-reservation:latest
+      - name: damage
+        image: ghcr.io/mtze/pedelec-damage:latest
         ports:
           - containerPort: 8080
-            name: reservation-api
+            name: damage-api

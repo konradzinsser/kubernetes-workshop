@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reservation
+  name: location
   namespace: go72hog
   labels:
-    app: reservation
+    app: location
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reservation
+      app: location
   template:
     metadata:
       labels:
-        app: reservation
+        app: location
     spec:
       containers:
-      - name: reservation
-        image: ghcr.io/mtze/pedelec-reservation:latest
+      - name: location
+        image: ghcr.io/mtze/pedelec-location:latest
         ports:
           - containerPort: 8080
-            name: reservation-api
+            name: location-api

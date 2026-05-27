@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reservation
+  namespace: go72hog
+  labels:
+    app: reservation-service
+spec:
+  selector:
+    app: reservation
+  ports:
+  - port: 80
+    targetPort: reservation-api

@@ -1,0 +1,45 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pedelec
+  namespace: go72hog
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+spec:
+  tls:
+    - hosts:
+        - go72hog.stud.k8s.aet.cit.tum.de
+      secretName: reservation-tls
+  rules:
+  - host: go72hog.stud.k8s.aet.cit.tum.de
+    http:
+      paths:
+      - path: /pedelec
+        pathType: Prefix
+        backend:
+          service:
+            name: reservation
+            port:
+              number: 80
+      - path: /reservation
+        pathType: Prefix
+        backend:
+          service:
+            name: reservation
+            port:
+              number: 80
+      - path: /damage
+        pathType: Prefix
+        backend:
+          service:
+            name: damage
+            port:
+              number: 80
+      - path: /locations
+        pathType: Prefix
+        backend:
+          service:
+            name: location
+            port:
+              number: 80

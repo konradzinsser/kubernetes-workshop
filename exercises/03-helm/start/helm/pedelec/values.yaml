@@ -7,4 +7,4 @@
 #   resources.requests / resources.limits
 
 # Replace this with real defaults as you templatize the manifests:
-{}
+hostname: go72hog.stud.k8s.aet.cit.tum.de

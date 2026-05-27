@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: damage
+  namespace: go72hog
+  labels:
+    app: damage-service
+spec:
+  selector:
+    app: damage
+  ports:
+  - port: 8080
+    targetPort: damage-api
